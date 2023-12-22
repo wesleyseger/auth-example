@@ -32,6 +32,8 @@ export const AuthProvider = ({ children }: ChildrenProps) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
+        authApi.defaults.headers.Authorization = null;
+
         const user: any = getUser();
         const currentTime = Date.now() / 1000;
 
